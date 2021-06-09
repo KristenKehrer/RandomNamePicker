@@ -1,0 +1,23 @@
+import datetime
+import time
+import random
+
+names = [
+'name1',
+'name2',
+'More_names',
+]
+
+random.shuffle(names)
+finish_time = datetime.datetime.now() + datetime.timedelta(seconds=10)
+
+index = 0
+name = ''
+while datetime.datetime.now() < finish_time:
+    index = (index + 1) % len(names)
+    name = names[index]
+    time.sleep(.1)
+    padding = ' ' * (15 - len(name))
+    print('\r' + name + padding, end='')
+
+print('\r' + name + ' is the winner!!!!')
